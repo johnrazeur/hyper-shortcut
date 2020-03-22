@@ -1,0 +1,84 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "id": "https://raw.githubusercontent.com/johnrazeur/hyper-shortcut/master/dist/hyper-shortcut-model-definition.json",
+  "title": "Hyper-Shortcut Model Definition",
+  "description": "Hyper-Shortcut configuration file",
+  "properties": {
+    "templatesPath" : {
+      "type" : "string",
+      "description": "Template path.\rWhere template files are stored."
+    },
+    "shortcuts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["create", "insert"]
+          },
+          "path": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string"
+          },
+          "info": {
+            "type": "string"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["input", "quickPick"]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "prompt": {
+                  "type": "string"
+                }
+              },
+              "required": ["type", "name", "prompt"],
+              "defaultSnippets": [
+                {
+                  "label": "New action",
+                  "body": {
+                    "type": "$1",
+                    "name": "$2",
+                    "prompt": "$3"
+                  }
+                }
+              ],
+              "if": {
+                "properties": { "type": { "const": "quickPick" } }
+              },
+              "then": {
+                "properties": {
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": ["items"]
+              }
+            }
+          }
+        },
+        "required": ["template", "group", "name", "type"]
+      }
+    }
+  },
+  "required": ["templatesPath"]
+}

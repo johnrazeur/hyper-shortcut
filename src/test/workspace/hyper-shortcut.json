@@ -1,0 +1,46 @@
+{
+    "templatesPath": "templates",
+    "shortcuts": [{
+        "group": "Create",
+        "name": "Controller (API)",
+        "type": "create",
+        "path": "{{name}}.php",
+        "template": "createApiController",
+        "info": "infoCreateApiController"
+       
+    }, {
+        "group": "Create",
+        "name": "Controller (Web)",
+        "template": "createWebController",
+        "actions": [{
+            "type": "input",
+            "name": "name",
+            "prompt": "Nom du controller"
+        },
+        {
+            "type": "input",
+            "name": "test",
+            "prompt": "Test prompt"
+        }]
+    },
+    {
+        "group": "Helper",
+        "name": "Get DB",
+        "template": "getDb",
+        "type": "insert"
+    },
+    {
+        "group": "Helper",
+        "name": "Get service",
+        "template": "getService",
+        "type": "insert",
+        "actions": [
+            {
+                "type": "quickPick",
+                "name": "serviceName",
+                "prompt": "Pick your service",
+                "items": ["db", "mailer"]
+            }
+        ]
+    }]
+}
