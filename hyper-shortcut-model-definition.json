@@ -76,6 +76,12 @@
             }
           }
         },
+        "if": {
+          "properties": { "type": { "const": "create" } }
+        },
+        "then": {
+          "required": ["path"]
+        },
         "required": ["template", "group", "name", "type"]
       }
     }
