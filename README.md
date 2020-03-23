@@ -35,7 +35,7 @@ Create a file named `hyper-shortcut.json` at the root folder of your namespace w
             "type": "input",
             "name": "testInput",
             "prompt": "Test of the input"
-        },      
+        }
     }
 }
 ```

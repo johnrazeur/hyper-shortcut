@@ -4,6 +4,16 @@ All notable changes to the "hyper-shortcut" extension will be documented in this
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [0.0.1]
+
+## [0.1.0] - 2020-03-23
+
+### Added
+- Add icons in the tree view
+- Github Actions
+
+### Fixed
+- Path is now required when shortcut type is create
+
+## [0.0.1] - 2020-03-22
 
 - Initial release
