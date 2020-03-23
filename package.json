@@ -2,7 +2,7 @@
 	"name": "hyper-shortcut",
 	"displayName": "hyper-shortcut",
 	"description": "Easy and powerful shortcut manager for vscode",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"publisher": "johnrazeur",
 	"repository": {
 		"type": "git",
@@ -15,7 +15,9 @@
 		"Snippets",
 		"Other"
 	],
-	"keywords": ["shortcut"],
+	"keywords": [
+		"shortcut"
+	],
 	"icon": "images/icon.png",
 	"activationEvents": [
 		"onView:hyper-shortcut"
@@ -42,9 +44,9 @@
 		"menus": {
 			"view/title": [
 				{
-				"command": "hyper-shortcut.refresh",
-				"when": "view == hyper-shortcut",
-				"group": "navigation"
+					"command": "hyper-shortcut.refresh",
+					"when": "view == hyper-shortcut",
+					"group": "navigation"
 				}
 			]
 		},
