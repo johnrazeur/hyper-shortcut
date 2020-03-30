@@ -40,6 +40,14 @@ export class Renderer
     {
         const filename = shortcut.path.replace('{{name}}', values.name);
         const insertPath = path.join(workspaceFolder, filename);
+
+        if (fs.existsSync(insertPath)) {
+            const overwriteResponse = await vscode.window.showWarningMessage('Overwrite file ?', 'Yes', 'No');
+            if (overwriteResponse === 'No') {
+                return;
+            }
+        }
+
         fs.writeFileSync(insertPath, content);
         const document = await vscode.workspace.openTextDocument(insertPath);
         await vscode.window.showTextDocument(document);
