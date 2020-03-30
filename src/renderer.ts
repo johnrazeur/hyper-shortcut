@@ -50,7 +50,7 @@ export class Renderer
 
         fs.writeFileSync(insertPath, content);
         const document = await vscode.workspace.openTextDocument(insertPath);
-        await vscode.window.showTextDocument(document);
+        await vscode.window.showTextDocument(document, { preview: false });
     
         // If we provide an information file
         if (shortcut.info) {
