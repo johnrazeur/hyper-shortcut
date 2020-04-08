@@ -12,10 +12,12 @@ export interface Shortcut {
   group: string;
   prompt: string;
   path: string;
+  filename: string;
   info: string;
   template: string;
   templatesPath: string;
   actions: Action[];
+  selectFolder: boolean;
 }
 
 export enum InsertType {
@@ -39,8 +41,16 @@ export function registerExplorer() {
     if (!shortcut) {
       return;
     }
-
+    
     const multiStepInput = new MultiStepInput();
+
+    if (shortcut.selectFolder) {
+      const folderPath = path.join(item.workspaceFolder, shortcut.path);
+      const selectedPath = await multiStepInput.selectFolder(folderPath);
+      // Remove workspace from path
+      shortcut.path = selectedPath.substring(item.workspaceFolder.length);
+    }
+
     if (shortcut.actions) {
       multiStepInput.registerActions(shortcut.actions);
     }

@@ -38,8 +38,8 @@ export class Renderer
 
     private async create(values: State, shortcut: Shortcut, workspaceFolder: string, content: string)
     {
-        const filename = shortcut.path.replace('{{name}}', values.name);
-        const insertPath = path.join(workspaceFolder, filename);
+        const filename = shortcut.filename.replace('{{name}}', values.name);
+        const insertPath = path.join(workspaceFolder, shortcut.path, filename);
 
         if (fs.existsSync(insertPath)) {
             const overwriteResponse = await vscode.window.showWarningMessage('Overwrite file ?', 'Yes', 'No');

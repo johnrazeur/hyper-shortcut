@@ -1,7 +1,8 @@
 import * as vscode from 'vscode';
 import { QuickPickItem, QuickInputButton, QuickInput, Disposable, QuickInputButtons } from 'vscode';
 import { Action } from './shortcutExplorer';
-
+import { readdirSync } from 'fs';
+import { join } from 'path';
 class InputFlowAction {
 	private constructor() { }
 	static back = new InputFlowAction();
@@ -107,7 +108,24 @@ export class MultiStepInput {
             name: variableName,
             value: ''
         });
-    }
+	}
+	
+	public async selectFolder(pathFolder: string): Promise<string>
+	{
+		const directories = readdirSync(pathFolder, { withFileTypes: true })
+			.filter(dirent => dirent.isDirectory())
+			.map(dirent => dirent.name);
+
+		directories.unshift('.');
+
+		let selectedDirectory = await vscode.window.showQuickPick(directories) as string;
+
+		if (selectedDirectory === '.') {
+			return pathFolder;
+		} else {
+			return await this.selectFolder(join(pathFolder, selectedDirectory));
+		}
+	}
 
 	async showQuickPick<T extends QuickPickItem, P extends QuickPickParameters<T>>({ title, step, totalSteps, items, activeItem, placeholder, buttons }: P) {
 		const disposables: Disposable[] = [];

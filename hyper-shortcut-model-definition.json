@@ -23,8 +23,14 @@
             "type": "string",
             "enum": ["create", "insert"]
           },
+          "filename": {
+            "type": "string"
+          },
           "path": {
             "type": "string"
+          },
+          "selectFolder": {
+            "type": "boolean"
           },
           "template": {
             "type": "string"
@@ -80,7 +86,7 @@
           "properties": { "type": { "const": "create" } }
         },
         "then": {
-          "required": ["path"]
+          "required": ["filename", "path"]
         },
         "required": ["template", "group", "name", "type"]
       }

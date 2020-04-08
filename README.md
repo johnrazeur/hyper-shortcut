@@ -29,7 +29,8 @@ Create a file named `hyper-shortcut.json` at the root folder of your namespace w
         "group": "Create",
         "name": "Controller (API)",
         "type": "create",
-        "path": "{{name}}.php",
+        "path": "myfolder",
+        "filename": "{{name}}.php",
         "template": "createApiController", 
         "actions": {
             "type": "input",
@@ -40,7 +41,7 @@ Create a file named `hyper-shortcut.json` at the root folder of your namespace w
 }
 ```
 
-When type is `create`, Hyper-Shorcut will prompt an input box asking the name of the file to the user. The name file is store in the variable `name` and you can use it in the template and in the `path` attribute of `hyper-shortcut.json`.
+When type is `create`, Hyper-Shorcut will prompt an input box asking the name of the file to the user. The name file is store in the variable `name` and you can use it in the template and in the `filename` attribute of `hyper-shortcut.json`.
 
 Actions is a list of variables the user must specifies. Result is store in the `name` variable, you can use it in the template file.
 Type must be `input`or `quickPick`. If type is `quickPick`, you must provide an `items` ( array of string ) of the possible values of the action.
@@ -63,6 +64,8 @@ You must create a file named `hyper-shortcut.json` at the root of your workspace
 | name          | string    | Name of the shortcut.                                                           |
 | type          | string    | Type of insertion. Must be `create` or `insert`.                                |
 | path          | string    | Path where the file is created when type is `create`.                           |
+| filename      | string    | Name of the created file when type is `create`.                                 |
+| selectFolder  | boolean   | If true, show a folder selector.                                                |
 | template      | string    | Template file of the shortcut in the `̀templatesPath` folder.                    |
 | info          | string    | Template file of the info. Info are displayed in readonly beside active editor. |
 | actions       | Action[]  | List of actions. Action ask user the value of a variable.                       |
