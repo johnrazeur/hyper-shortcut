@@ -2,7 +2,7 @@
 	"name": "hyper-shortcut",
 	"displayName": "hyper-shortcut",
 	"description": "Easy and powerful shortcut manager for vscode",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"publisher": "johnrazeur",
 	"repository": {
 		"type": "git",

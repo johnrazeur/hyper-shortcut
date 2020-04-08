@@ -4,6 +4,11 @@ All notable changes to the "hyper-shortcut" extension will be documented in this
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.3.0] - 2020-04-09
+
+## Added
+- Add folder selector
+
 ## [0.2.1] - 2020-03-30
 
 ### Changed
